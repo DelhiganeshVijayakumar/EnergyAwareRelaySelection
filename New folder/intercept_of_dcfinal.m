@@ -5,7 +5,7 @@ sigma_sp = 0.2;
 sigma_ps = 0.2;
 sigma_sd = 0.5;
 lambda_s = 0.5;
-a = (alpha * eta) / (1 - alpha);
+a = (alpha * eta) / (1 - alpha); 
 
 Nv = 4;
 
