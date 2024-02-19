@@ -6,13 +6,12 @@ sigma_ps = 0.2;
 sigma_sd = 0.5;
 lambda_s = 0.5;
 a = (alpha * eta) / (1 - alpha); 
- 
 Nv = 4;
 
-gamma_p_values = -10:1:30;
-intercept_probabilities = zeros(size(gamma_p_values));
+theta = 0.1:0.01:1;
+intercept_probabilities = zeros(size(theta));
 
-for i = 1:length(gamma_p_values)
+for i = 1:length(g)
 
     gamma_p1 = gamma_p_values(i);
     intercept_probabilities(i) = calculateInterceptProbability(gamma_I2, sigma_sp, sigma_ps, lambda_s, a, gamma_p1, Nv);

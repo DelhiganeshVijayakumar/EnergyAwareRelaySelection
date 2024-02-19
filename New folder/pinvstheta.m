@@ -6,21 +6,20 @@ sigma_ps = 0.2;
 sigma_sd = 0.5;
 lambda_s = 0.5;
 a = (alpha * eta) / (1 - alpha); 
- 
 Nv = 4;
 
-gamma_p_values = -10:1:30;
-intercept_probabilities = zeros(size(gamma_p_values));
+theta = 0:0.05:1;
+intercept_probabilities = zeros(size(theta));
+gamma_p1= 10^(5/10);
+for i = 1:length(theta)
 
-for i = 1:length(gamma_p_values)
-
-    gamma_p1 = gamma_p_values(i);
+    
     intercept_probabilities(i) = calculateInterceptProbability(gamma_I2, sigma_sp, sigma_ps, lambda_s, a, gamma_p1, Nv);
 
 end
 
-semilogy(gamma_p_values, intercept_probabilities, 'LineWidth', 2,Marker='o');
-xlabel('\gamma_{p} (dB)');
+semilogy(theta, intercept_probabilities, 'LineWidth', 2,Marker='>');
+xlabel('\theta_{} (dB)');
 ylabel('Intercept Probability');
 title('Intercept Probability for Direct Communication in Semilog Scale');
 grid on;

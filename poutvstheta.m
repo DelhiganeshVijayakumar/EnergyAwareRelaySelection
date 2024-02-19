@@ -1,16 +1,16 @@
-gamma_p_values = -10:1:30; % Range of gamma_p values
-outage_probabilities = zeros(size(gamma_p_values));
-
+theta = 0:0.05:1; % Range of gamma_p values
+outage_probabilities = zeros(size(theta));
+gamma_p=10^(5/10);
 % Calculate the outage probability for direct communication for each gamma_p value
-for i = 1:length(gamma_p_values)
-    gamma_p = gamma_p_values(i);
+for i = 1:length(theta)
+    
     % Replace the following line with the actual calculation using equation 30
     outage_probabilities(i) = calculateOutageProbability(gamma_p); % Replace with the actual calculation
 end
 
 % Plot the outage probability for direct communication in semilog scale
-semilogy(gamma_p_values, outage_probabilities, 'LineWidth', 2,Marker='*');
-xlabel('\gamma_{p} (dB)');
+semilogy(theta, outage_probabilities, 'LineWidth', 2,Marker='*');
+xlabel('\theta_{} (dB)');
 ylabel('Outage Probability');
 title('Outage Probability for Direct Communication in Semilog Scale');
 grid on;

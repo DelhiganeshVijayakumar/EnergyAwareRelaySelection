@@ -9,7 +9,7 @@ for i = 1:length(gamma_p_values)
 end
 
 % Plot the outage probability for direct communication in semilog scale
-semilogy(gamma_p_values, outage_probabilities, 'LineWidth', 2,Marker='*');
+semilogy(theta, outage_probabilities, 'LineWidth', 2,Marker='*');
 xlabel('\gamma_{p} (dB)');
 ylabel('Outage Probability');
 title('Outage Probability for Direct Communication in Semilog Scale');
