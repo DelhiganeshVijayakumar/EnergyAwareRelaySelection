@@ -24,7 +24,7 @@ b = 2 * alpha * eta /(1-alpha);
  
 
 
-gamma_p_values = -10:1:30;
+gamma_p_values = 0:1:30;
 intercept_probabilities_of_DC = zeros(size(gamma_p_values));
 intercept_probabilities_of_EAR = zeros(size(gamma_p_values));
 
