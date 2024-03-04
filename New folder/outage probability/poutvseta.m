@@ -1,4 +1,4 @@
-eta = 0:0.05:1; % Range of gamma_p values
+eta = 0:0.1:1; % Range of gamma_p values
 outage_probabilities = zeros(size(eta));
 gamma_p=10^(5/10);
 % Calculate the outage probability for direct communication for each gamma_p value
@@ -10,9 +10,10 @@ end
 
 % Plot the outage probability for direct communication in semilog scale
 semilogy(eta, outage_probabilities, 'LineWidth', 2,Marker='*');
+
 xlabel('\eta_{} ');
 ylabel('Outage Probability');
-title('Outage Probability for Direct Communication in Semilog Scale');
+title('Outage Probability vs \eta');
 grid on;
 
 function outage_probability = calculateOutageProbability(gamma_p1,i)
@@ -31,6 +32,6 @@ function outage_probability = calculateOutageProbability(gamma_p1,i)
     epsilon_2 = (lambda_0/sigma_sd)+(gamma_I1/sigma_sp);
 
     % Calculate the outage probability using equation 30
-    outage_probability = 1 - (sqrt(epsilon_1*lambda_0/sigma_sd) * besseli(1, sqrt(epsilon_1*lambda_0/sigma_sd))) - ((gamma_I1*sigma_sp)*sqrt(epsilon_1/epsilon_2) * besseli(1, sqrt(epsilon_1*epsilon_2)))+(sqrt(epsilon_1*epsilon_2)*besseli(1,sqrt(epsilon_1*epsilon_2)));
+    outage_probability = 1 - (sqrt(epsilon_1*lambda_0/sigma_sd) * besselk(1, sqrt(epsilon_1*lambda_0/sigma_sd))) - ((gamma_I1*sigma_sp)*sqrt(epsilon_1/epsilon_2) * besselk(1, sqrt(epsilon_1*epsilon_2)))+(sqrt(epsilon_1*epsilon_2)*besselk(1,sqrt(epsilon_1*epsilon_2)));
 end
 

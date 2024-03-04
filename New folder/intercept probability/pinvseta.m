@@ -1,12 +1,12 @@
 clf();
 alpha = 0.4;
 eta = 0:0.05:1;
-gamma_I2 = 20;
+gamma_I2 = 100;
 sigma_sp = 0.2;
 sigma_ps = 0.2;
 sigma_sd = 0.5;
 lambda_s = 0.5;
- 
+  
 Nv = 4;
 
 intercept_probabilities = zeros(size(eta));
@@ -20,13 +20,13 @@ for i = 1:length(eta)
     intercept_probabilities(i) = calculateInterceptProbability(gamma_I2, sigma_sp, sigma_ps, lambda_s, a, gamma_p, Nv);
     intercept_probabilities_of_EAR(i) = calculate_Intercept_Probability_Of_EAR(gamma_I2, lambda_s, a, gamma_p, Nv,b);
 end
-
+ 
 semilogy(eta, intercept_probabilities, 'LineWidth', 2,Marker='>');
 hold on;
 semilogy(eta, intercept_probabilities_of_EAR, 'LineWidth', 2,Marker='+');
-xlabel('\eta_{} (dB)');
+xlabel('\eta_{}');
 ylabel('Intercept Probability');
-title('Intercept Probability for Direct Communication in Semilog Scale');
+title('Intercept Probability vs \eta{}');
 grid on;
 
 function intercept_probability = calculateInterceptProbability(gamma_I2, sigma_sp, sigma_ps, lambda_s, a, gamma_p1, Nv)

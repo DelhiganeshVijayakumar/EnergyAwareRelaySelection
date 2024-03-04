@@ -39,7 +39,7 @@ semilogy(gamma_p_values, outage_probabilities_of_DC, 'LineWidth', 2,Marker='o');
 % semilogy(gamma_p_values,intercept_probabilities_of_EAR,'LineWidth',2,Marker='+');
 xlabel('\gamma_{p} (dB)');
 ylabel('Outage Probability');
-title('Outage Probability vs average interference');
+title('Intercept Probability for Direct Communication in Semilog Scale');
 grid on;
 
 function outage_probabilities_of_DC = calculate_Outage_Probability_Of_DC(gamma_p1, gamma_I1,sigma_ps,a,lambda_0,sigma_sd,sigma_sp)

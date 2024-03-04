@@ -27,7 +27,7 @@ hold on;
 semilogy(theta, intercept_probabilities_of_EAR, 'LineWidth', 2,Marker='+');
 xlabel('\theta_{} ');
 ylabel('Intercept Probability');
-title('Intercept Probability for Direct Communication in Semilog Scale');
+title('Intercept Probability vs \theta{}');
 grid on;
 
 function intercept_probability = calculateInterceptProbability(gamma_I2, sigma_sp, sigma_ps, lambda_s, a, gamma_p1, Nv)
