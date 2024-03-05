@@ -51,10 +51,27 @@ function outage_probabilities_of_DC = calculate_Outage_Probability_Of_DC(gamma_p
 
 end
 
-    
+% 
+% function intercept_probabilities_of_EAR = calculate_Intercept_Probability_Of_EAR(gamma_I2, lambda_s, a, gamma_p, Nv,b)
+%     
+%     sigma_ie = 0.2;
+%     sigma_pi = 0.2;
+%     sigma_ip = 0.2;
+%     A3 = lambda_s/(b*gamma_p*sigma_ie);
+%     A5 = lambda_s/(gamma_I2*sigma_ie);
+%     A7 = gamma_I2/(a*gamma_p);
+%     intercept_probabilities_of_EAR = 0;
+% 
+%     for m = 0:(Nv - 1)
+%         intercept_probabilities_of_EAR = intercept_probabilities_of_EAR + (((2*(A3)^m/(factorial(m)*sigma_pi))*((A3*sigma_pi)^((1-m)/2))*besselk(1-m,2*sqrt(A3*(1/sigma_pi)))) ...
+%             -((2*(A3)^m/(factorial(m)*sigma_pi))*(((A3+(A7*(sigma_ie)^-1))*sigma_pi)^((1-m)/2))*besselk(1-m,2*sqrt((A3+(A7*(sigma_ie)^-1))*(1/sigma_pi)))) ...
+%             + ((2*(A5)^m/(factorial(m)*sigma_pi))*(((A5+sigma_ip^-1)*A7*sigma_pi)^((1+m)/2))*besselk(1+m,2*sqrt((A5+(1/sigma_ip)*A7)*(1/sigma_pi)))));
+%     end
+% end
+
 
 function outage_probabilities_of_NEAR = calculate_Outage_Probability_Of_NEAR(gamma_I1, lambda_0, gamma_p1,b)
-Dn = [5 6 7 10];
+Dn = [5 6 7 1];
 DN = length(Dn);
 sigma_id = 0.5;
 sigma_ip = 0.1;
