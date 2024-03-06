@@ -26,7 +26,7 @@ hold on;
 semilogy(eta, intercept_probabilities_of_EAR, 'LineWidth', 2,Marker='+');
 xlabel('\eta_{}');
 ylabel('Intercept Probability');
-title('Intercept Probability vs \eta{}');
+title('Intercept Probability vs energy conversion efficiency');
 grid on;
 
 function intercept_probability = calculateInterceptProbability(gamma_I2, sigma_sp, sigma_ps, lambda_s, a, gamma_p1, Nv)

@@ -1,5 +1,6 @@
 clf();
 alpha = 0.4;
+eta = 0.6;
 theta=0.8;
 gamma_I1=0.1 ;
 sigma_sd = 0.5;
@@ -17,31 +18,30 @@ Nr = 4;
 Nv = 4;
 
 lambda_0 = 0.4;
-
+a = (alpha * eta) / (1 - alpha); 
+b = 2 * alpha * eta /(1-alpha);
  
-eta = 0:0.1:1; % Range of gamma_p values
-outage_probabilities_of_DC = zeros(size(eta));
-outage_probabilities_of_NEAR = zeros(size(eta));
 
-gamma_p1=10^(5/10);
 
-% Calculate the outage probability for direct communication for each gamma_p value
-for i = 1:length(eta)
-    a = (alpha * eta(i)) / (1 - alpha); 
-    b = 2 * alpha * eta(i) /(1-alpha);
-    
+gamma_p_values = 0:1:30;
+outage_probabilities_of_DC = zeros(size(gamma_p_values));
+outage_probabilities_of_NEAR = zeros(size(gamma_p_values));
+
+for i = 1:length(gamma_p_values)
+
+    gamma_p1 = gamma_p_values(i);
     outage_probabilities_of_DC(i) = calculate_Outage_Probability_Of_DC(gamma_p1, gamma_I1,sigma_ps,a,lambda_0,sigma_sd,sigma_sp);
     outage_probabilities_of_NEAR(i) = calculate_Outage_Probability_Of_NEAR(gamma_I1, lambda_0, gamma_p1,b);
+    
 end
 
-% Plot the outage probability for direct communication in semilog scale
-semilogy(eta, outage_probabilities_of_DC, 'LineWidth', 2,Marker='o');
+semilogy(gamma_p_values, outage_probabilities_of_DC, 'LineWidth', 2,Marker='o');
 
 hold on;
-semilogy(eta,outage_probabilities_of_NEAR,'LineWidth',2,Marker='+');
-xlabel('\eta');
+semilogy(gamma_p_values,outage_probabilities_of_NEAR,'LineWidth',2,Marker='+');
+xlabel('\gamma_{p} (dB)');
 ylabel('Outage Probability');
-title('Outage Probability vs \eta');
+title('Outage Probability vs SNR');
 grid on;
 
 function outage_probabilities_of_DC = calculate_Outage_Probability_Of_DC(gamma_p1, gamma_I1,sigma_ps,a,lambda_0,sigma_sd,sigma_sp)

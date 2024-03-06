@@ -43,7 +43,7 @@ hold on;
 semilogy(gamma_p_values,intercept_probabilities_of_NEAR,'LineWidth',2,Marker='square');
 xlabel('\gamma_{p} (dB)');
 ylabel('Intercept Probability');
-title('Intercept Probability Vs Average Inteference');
+title('Intercept Probability Vs SNR');
 grid on;
 
 function intercept_probabilities_of_DC = calculate_Intercept_Probability_Of_DC(gamma_I2, sigma_sp, sigma_ps, lambda_s, a, gamma_p, Nv)
