@@ -39,6 +39,7 @@ semilogy(gamma_p_values, outage_probabilities_of_DC, 'LineWidth', 2,Marker='o');
 
 hold on;
 semilogy(gamma_p_values,outage_probabilities_of_NEAR,'LineWidth',2,Marker='+');
+legend('OP(DC)','OP(EARS)','Location','northeast');
 xlabel('\gamma_{p} (dB)');
 ylabel('Outage Probability');
 title('Outage Probability vs SNR');

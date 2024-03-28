@@ -39,6 +39,7 @@ semilogy(eta, outage_probabilities_of_DC, 'LineWidth', 2,Marker='o');
 
 hold on;
 semilogy(eta,outage_probabilities_of_NEAR,'LineWidth',2,Marker='+');
+legend('OP(DC)','OP(EARS)','Location','northeast');
 xlabel('\eta');
 ylabel('Outage Probability');
 title('Outage Probability vs energy conversion efficiency');

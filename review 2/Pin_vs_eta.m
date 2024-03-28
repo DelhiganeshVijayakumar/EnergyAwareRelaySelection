@@ -3,7 +3,7 @@ alpha = 0.4;
 eta = 0:0.05:1;
 gamma_I2 = 100;
 sigma_sp = 0.2;
-sigma_ps = 0.2;
+sigma_ps = 0.2; 
 sigma_sd = 0.5;
 lambda_s = 0.5;
   
@@ -24,6 +24,7 @@ end
 semilogy(eta, intercept_probabilities, 'LineWidth', 2,Marker='>');
 hold on;
 semilogy(eta, intercept_probabilities_of_EAR, 'LineWidth', 2,Marker='+');
+legend('IP(DC)','IP(EARS)','Location','east');
 xlabel('\eta_{}');
 ylabel('Intercept Probability');
 title('Intercept Probability vs energy conversion efficiency');

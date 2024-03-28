@@ -25,6 +25,7 @@ end
 semilogy(theta, intercept_probabilities, 'LineWidth', 2,Marker='>');
 hold on;
 semilogy(theta, intercept_probabilities_of_EAR, 'LineWidth', 2,Marker='+');
+legend('IP(DC)','IP(EARS)','Location','east');
 xlabel('\theta_{} ');
 ylabel('Intercept Probability');
 title('Intercept Probability vs \theta{}');

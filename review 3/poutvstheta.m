@@ -32,15 +32,17 @@ b = 2 * alpha * eta /(1-alpha);
 for i = 1:length(theta)
 
     outage_probabilities_of_DC(i) = calculate_Outage_Probability_Of_DC(gamma_p1, gamma_I1,sigma_ps,a,lambda_0,sigma_sd,sigma_sp);
-    outage_probabilities_of_NEAR(i) = calculate_Outage_Probability_Of_NEAR(gamma_I1, lambda_0, gamma_p1,b);
+    outage_probabilities_of_NEAR(i) = calculate_Outage_Probability_Of_NEAR(gamma_I1, lambda_0, gamma_p1,b,theta(i));
 end
 
 % Plot the outage probability for direct communication in semilog scale
 semilogy(theta, outage_probabilities_of_DC, 'LineWidth', 2,Marker='o');
 
+
 hold on;
 semilogy(theta,outage_probabilities_of_NEAR,'LineWidth',2,Marker='+');
-xlabel('\eta');
+legend('OP(DC)','OP(EARS)','Location','northeast');
+xlabel('\theta');
 ylabel('Outage Probability');
 title('Outage Probability vs \theta');
 grid on;
@@ -54,7 +56,7 @@ end
 
     
 
-function outage_probabilities_of_NEAR = calculate_Outage_Probability_Of_NEAR(gamma_I1, lambda_0, gamma_p1,b)
+function outage_probabilities_of_NEAR = calculate_Outage_Probability_Of_NEAR(gamma_I1, lambda_0, gamma_p1,b,i)
 Dn = [5 6 7 10];
 DN = length(Dn);
 sigma_id = 0.5;
@@ -62,7 +64,7 @@ sigma_ip = 0.1;
 sigma_p1=0.1 ;
 sigma_kd=0.2;
 sigma_pi=0.2;
-lambda_1=lambda_0;
+lambda_1=lambda_0/i;
 
 A5 = 4/(b*gamma_p1*sigma_id*sigma_p1);
 

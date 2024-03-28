@@ -41,6 +41,7 @@ semilogy(gamma_p_values, intercept_probabilities_of_DC, 'LineWidth', 2,Marker='o
 hold on;
 %semilogy(gamma_p_values,intercept_probabilities_of_EAR,'LineWidth',2,Marker='+');
 semilogy(gamma_p_values,intercept_probabilities_of_NEAR,'LineWidth',2,Marker='square');
+legend('IP(DC)','IP(EARS)','Location','east');
 xlabel('\gamma_{p} (dB)');
 ylabel('Intercept Probability');
 title('Intercept Probability Vs SNR');
